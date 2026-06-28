@@ -12,7 +12,7 @@
             <h4
               class="mb-2 text-lg font-semibold text-center text-gray-800 dark:text-white/90 xl:text-left"
             >
-              Musharof Chowdhury
+              Musharof Chowdhury {{user.name}}
             </h4>
             <div
               class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left"
@@ -315,6 +315,8 @@
 import { ref } from 'vue'
 import Modal from './Modal.vue'
 
+import axios from "axios";
+
 const isProfileInfoModal = ref(false)
 
 const saveProfile = () => {
@@ -322,4 +324,28 @@ const saveProfile = () => {
   console.log('Profile saved')
   isProfileInfoModal.value = false
 }
+
+defineProps({
+
+  user: {
+    type: Object,
+    default: () => ({})
+  }
+});
+
+//-----------------------------------------------------
+const response = await axios.post(
+      "http://localhost:5000/api/auth/register",
+      {
+        name: user.value.name,
+        email: user.value.email,
+        password: user.value.password
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+);
+cosole.log(response.data);
 </script>

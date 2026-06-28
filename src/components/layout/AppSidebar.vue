@@ -15,25 +15,25 @@
   >
     <div
       :class="[
-        'py-8 flex',
+        'py-8 flex items-center gap-2',
         !isExpanded && !isHovered ? 'lg:justify-center' : 'justify-start',
       ]"
     >
-      <router-link to="/">
+      <router-link to="/ecommerce">
         <img
           v-if="isExpanded || isHovered || isMobileOpen"
           class="dark:hidden"
-          src="/images/logo/logo.svg"
+          src="/images/logo/MPA_Logo_2.png"
           alt="Logo"
-          width="150"
+          width="60"
           height="40"
         />
         <img
           v-if="isExpanded || isHovered || isMobileOpen"
           class="hidden dark:block"
-          src="/images/logo/logo-dark.svg"
+          src="/images/logo/MPA_Logo_2.png"
           alt="Logo"
-          width="150"
+          width="60"
           height="40"
         />
         <img
@@ -42,8 +42,9 @@
           alt="Logo"
           width="32"
           height="32"
-        />
+        />        
       </router-link>
+      <span class="text-2xl font-bold">MPA</span>
     </div>
     <div
       class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar"
@@ -245,18 +246,30 @@ const menuGroups = [
       {
         icon: GridIcon,
         name: "Dashboard",
-        subItems: [{ name: "Ecommerce", path: "/", pro: false }],
-      },
-      {
-        icon: CalenderIcon,
-        name: "Calendar",
-        path: "/calendar",
+        path: "/ecommerce"
+        // subItems: [{ name: "Ecommerce", path: "/", pro: false }],
       },
       {
         icon: UserCircleIcon,
         name: "User Profile",
         path: "/profile",
       },
+      {
+        icon: ListIcon,
+        name: "Users List",
+        path: "/users-list",
+      },
+      {
+        icon: ListIcon,
+        name: "Clients List",
+        path: "/clients-list",
+      },
+      {
+        icon: CalenderIcon,
+        name: "Calendar",
+        path: "/calendar",
+      },
+      
 
       {
         name: "Forms",
@@ -270,50 +283,50 @@ const menuGroups = [
         icon: TableIcon,
         subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
       },
-      {
-        name: "Pages",
-        icon: PageIcon,
-        subItems: [
-          { name: "Black Page", path: "/blank", pro: false },
-          { name: "404 Page", path: "/error-404", pro: false },
-        ],
-      },
+      // {
+      //   name: "Pages",
+      //   icon: PageIcon,
+      //   subItems: [
+      //     { name: "Black Page", path: "/blank", pro: false },
+      //     { name: "404 Page", path: "/error-404", pro: false },
+      //   ],
+      // },
     ],
   },
-  {
-    title: "Others",
-    items: [
-      {
-        icon: PieChartIcon,
-        name: "Charts",
-        subItems: [
-          { name: "Line Chart", path: "/line-chart", pro: false },
-          { name: "Bar Chart", path: "/bar-chart", pro: false },
-        ],
-      },
-      {
-        icon: BoxCubeIcon,
-        name: "Ui Elements",
-        subItems: [
-          { name: "Alerts", path: "/alerts", pro: false },
-          { name: "Avatars", path: "/avatars", pro: false },
-          { name: "Badge", path: "/badge", pro: false },
-          { name: "Buttons", path: "/buttons", pro: false },
-          { name: "Images", path: "/images", pro: false },
-          { name: "Videos", path: "/videos", pro: false },
-        ],
-      },
-      {
-        icon: PlugInIcon,
-        name: "Authentication",
-        subItems: [
-          { name: "Signin", path: "/signin", pro: false },
-          { name: "Signup", path: "/signup", pro: false },
-        ],
-      },
-      // ... Add other menu items here
-    ],
-  },
+  // {
+  //   title: "Others",
+  //   items: [
+  //     {
+  //       icon: PieChartIcon,
+  //       name: "Charts",
+  //       subItems: [
+  //         { name: "Line Chart", path: "/line-chart", pro: false },
+  //         { name: "Bar Chart", path: "/bar-chart", pro: false },
+  //       ],
+  //     },
+  //     {
+  //       icon: BoxCubeIcon,
+  //       name: "Ui Elements",
+  //       subItems: [
+  //         { name: "Alerts", path: "/alerts", pro: false },
+  //         { name: "Avatars", path: "/avatars", pro: false },
+  //         { name: "Badge", path: "/badge", pro: false },
+  //         { name: "Buttons", path: "/buttons", pro: false },
+  //         { name: "Images", path: "/images", pro: false },
+  //         { name: "Videos", path: "/videos", pro: false },
+  //       ],
+  //     },
+  //     {
+  //       icon: PlugInIcon,
+  //       name: "Authentication",
+  //       subItems: [
+  //         { name: "Signin", path: "/signin", pro: false },
+  //         { name: "Signup", path: "/signup", pro: false },
+  //       ],
+  //     },
+  //     // ... Add other menu items here
+  //   ],
+  // },
 ];
 
 const isActive = (path) => route.path === path;

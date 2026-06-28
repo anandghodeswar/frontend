@@ -8,10 +8,18 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Signin',
+      component: () => import('../views/Auth/Signin.vue'),
+      meta: {
+        title: 'Signin',
+      },
+    },
+    {
+      path: '/ecommerce',
       name: 'Ecommerce',
       component: () => import('../views/Ecommerce.vue'),
       meta: {
-        title: 'eCommerce Dashboard',
+        title: 'Dashboard',
       },
     },
     {
@@ -28,6 +36,22 @@ const router = createRouter({
       component: () => import('../views/Others/UserProfile.vue'),
       meta: {
         title: 'Profile',
+      },
+    },
+    {
+      path: '/users-list',
+      name: 'Users List',
+      component: () => import('../views/Users/UsersList.vue'),
+      meta: {
+        title: 'Users List',
+      },
+    },
+    {
+      path: '/clients-list',
+      name: 'Clients List',
+      component: () => import('../views/Clients/ClientsList.vue'),
+      meta: {
+        title: 'Clients List',
       },
     },
     {
@@ -124,14 +148,14 @@ const router = createRouter({
       },
     },
 
-    {
-      path: '/signin',
-      name: 'Signin',
-      component: () => import('../views/Auth/Signin.vue'),
-      meta: {
-        title: 'Signin',
-      },
-    },
+    // {
+    //   path: '/signin',
+    //   name: 'Signin',
+    //   component: () => import('../views/Auth/Signin.vue'),
+    //   meta: {
+    //     title: 'Signin',
+    //   },
+    // },
     {
       path: '/signup',
       name: 'Signup',
@@ -146,6 +170,6 @@ const router = createRouter({
 export default router
 
 router.beforeEach((to, from, next) => {
-  document.title = `Vue.js ${to.meta.title} | TailAdmin - Vue.js Tailwind CSS Dashboard Template`
+  document.title = `MPA - ${to.meta.title} | Project Management System`
   next()
 })
